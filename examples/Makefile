@@ -2,7 +2,7 @@
 #
 # SPL, the Shakespeare Programming Language
 #
-# Copyright (C) 2001 Karl Hasselström and Jon Åslund
+# Copyright (C) 2001 Karl Hasselstrï¿½m and Jon ï¿½slund
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -30,7 +30,7 @@ SPL2C = $(SPLPATH)/bin/spl2c
 # compiler flags
 CCFLAGS      = -O2 -Wall -Wno-unused
 INCLUDEFLAGS = -I$(SPLPATH)/include
-LDFLAGS      = -L$(SPLPATH)/lib -lm -lspl
+LDFLAGS      = -L$(SPLPATH)/lib -lspl
 
 # target files
 TARGETS = $(patsubst %.spl, %, $(wildcard *.spl))
@@ -38,8 +38,8 @@ TARGETS = $(patsubst %.spl, %, $(wildcard *.spl))
 .PHONY: all
 all: $(TARGETS)
 
-%: %.o 
-	$(CC) $(CCFLAGS) $^ $(LDFLAGS) -o $@
+%: %.o
+	$(CC) $(CCFLAGS) $^ $(LDFLAGS) -o $@ -lm
 
 %.c: %.spl
 	$(SPL2C) < $< > $@
